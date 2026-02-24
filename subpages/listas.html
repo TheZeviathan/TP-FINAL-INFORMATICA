@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Garbo | Presentación</title>
+  <title>Garbo | Listas y Precios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,8 +12,9 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+
       <a class="navbar-brand" href="index.html">Garbo</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -21,44 +22,69 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
+<ul class="navbar-nav ms-auto">
 
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="quien.html">Quiénes Somos</a></li>
-          <li class="nav-item"><a class="nav-link" href="tecnologias.html">Tecnologías</a></li>
-          <li class="nav-item"><a class="nav-link" href="historia.html">Historia</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link active" href="presentacion.html">Presentación</a></li>
-          <li class="nav-item"><a class="nav-link" href="listas.html">Listas</a></li>
-          <li class="nav-item"><a class="nav-link" href="explicacion.html">Explicación</a></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/index.html">Inicio</a>
+  </li>
 
-        </ul>
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/quien.html">Quiénes Somos</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/tratamiento.html">Tratamientos</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/dermocosmetica.html">Dermocosmética</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/galeria.html">Galería</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/juegos.html">Juego</a>
+  </li>
+
+</ul>
       </div>
     </div>
   </nav>
 </header>
 
+
 <main class="container my-5">
 
-  <h1>Presentación</h1>
+  <h1>Lista de Productos y Precios</h1>
 
-  <div class="row align-items-center mt-5">
-
-    <div class="col-md-6">
-      <img src="../assets/duena.jpg" alt="Dueña de Garbo" class="img-fluid rounded shadow-sm">
-    </div>
-
-    <div class="col-md-6">
-      <h2>Fabiana Carrión</h2>
-      <p>
-        Profesional en dermocosmética con una trayectoria enfocada en el cuidado integral de la piel.
-      </p>
-      <p>
-        Su compromiso se basa en brindar atención personalizada, acompañando a cada persona en su proceso de bienestar.
-      </p>
-    </div>
-
-  </div>
+  <table class="table table-striped mt-5 bg-white rounded shadow-sm">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Crema Hidratante</td>
+        <td>Uso diario para todo tipo de piel.</td>
+        <td>$5.000</td>
+      </tr>
+      <tr>
+        <td>Serum Vitamina C</td>
+        <td>Iluminador y revitalizante.</td>
+        <td>$7.500</td>
+      </tr>
+      <tr>
+        <td>Protector Solar FPS 50+</td>
+        <td>Protección diaria.</td>
+        <td>$6.000</td>
+      </tr>
+    </tbody>
+  </table>
 
 </main>
 
