@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Garbo | Trivia Dermocosmética</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+
+      <a class="navbar-brand" href="index.html">Garbo</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="quien.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="tratamiento.html">Tratamientos</a></li>
+          <li class="nav-item"><a class="nav-link" href="dermocosmetica.html">Dermocosmética</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link active" href="juego.html">Juego</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<main class="container my-5">
+
+  <h1 class="mb-4">Trivia Garbo</h1>
+  <p>Poné a prueba tus conocimientos sobre dermocosmética y la historia del centro Garbo.</p>
+
+  <!-- CONSIGNA -->
+  <div class="mb-3">
+    <button id="toggle-consigna" class="btn btn-outline-dark">Ver Consigna</button>
+  </div>
+
+  <div id="consigna" class="p-3 rounded shadow-sm mb-4" style="display:none;">
+    <h5>Objetivo</h5>
+    <p>Responder correctamente la mayor cantidad de preguntas posibles.</p>
+    <p>Cada respuesta correcta suma 1 punto.</p>
+  </div>
+
+  <!-- JUEGO -->
+  <section class="card shadow-sm p-4">
+
+    <div id="jugador-info" class="mb-3">
+      <label for="nombre3" class="form-label">Ingresá tu nombre:</label>
+      <input id="nombre3" class="form-control mb-2" placeholder="Jugador">
+      <button id="comenzar3" class="btn btn-dark">Comenzar</button>
+    </div>
+
+    <div id="pregunta-container" style="display:none;">
+
+      <div class="pregunta-box p-3 rounded text-white mb-3">
+        <h4 id="pregunta-texto"></h4>
+      </div>
+
+      <div id="contador" class="mb-3 fw-bold"></div>
+
+      <div id="opciones" class="d-grid gap-2"></div>
+
+      <button id="siguiente" class="btn btn-secondary mt-3" disabled>Siguiente</button>
+
+    </div>
+
+    <div id="resultado3" class="mt-4"></div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer-custom text-center p-3">
+<p>garbo.dermoestetica@gmail.com</p>
+</footer>
+
+<script src="../js/juego.js"></script>
+<script src="../js/ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

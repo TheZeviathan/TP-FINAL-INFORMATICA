@@ -100,3 +100,33 @@ footer {
   text-shadow: 0 0 2px rgba(234, 0, 255, 0.671);
   font-size: 0.9rem;
 }
+
+/* ============================= */
+/* TARJETAS DE VALORES - EFECTO */
+/* ============================= */
+
+.valor-card {
+  background: white;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+}
+
+/* Hover */
+.valor-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(160, 90, 200, 0.25);
+  background: linear-gradient(135deg, #fff0fa, #f5e9ff);
+  border-color: #c084fc;
+}
+
+/* Título dentro de la tarjeta */
+.valor-card h5 {
+  transition: all 0.3s ease;
+}
+
+/* Efecto sobre el título */
+.valor-card:hover h5 {
+  color: #8e24aa;
+  text-shadow: 0 0 8px rgba(180, 120, 255, 0.4);
+}
