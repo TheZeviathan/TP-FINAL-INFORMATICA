@@ -3,52 +3,110 @@
 // =============================
 
 let preguntas = [
-    {
-        texto: "¿Qué tipo de productos trabaja Garbo?",
-        opciones: ["Maquillaje artístico", "Productos dermocosméticos", "Perfumes importados"],
-        correcta: 1
-    },
-    {
-        texto: "¿Qué producto ayuda a proteger la piel del sol?",
-        opciones: ["Serum", "Protector Solar FPS 50+", "Tónico facial"],
-        correcta: 1
-    },
-    {
-        texto: "¿Quién es la fundadora de Garbo?",
-        opciones: ["Fabiana Carrión", "Laura Martínez", "Ana Beltrán"],
-        correcta: 0
-    },
-    {
-        texto: "¿Qué producto es ideal para iluminar la piel?",
-        opciones: ["Serum Vitamina C", "Crema corporal", "Jabón neutro"],
-        correcta: 0
-    },
-    {
-        texto: "¿Qué se prioriza en Garbo?",
-        opciones: ["Venta masiva", "Atención personalizada", "Promociones constantes"],
-        correcta: 1
-    },
-    {
-        texto: "¿Qué tratamiento se enfoca en el cuidado facial?",
-        opciones: ["Tratamiento capilar", "Tratamiento facial hidratante", "Tratamiento deportivo"],
-        correcta: 1
-    },
-    {
-        texto: "¿Qué disciplina respalda los productos utilizados?",
-        opciones: ["Astrología", "Estudios dermatológicos", "Marketing digital"],
-        correcta: 1
-    },
-    {
-        texto: "¿Cuál de estos productos aparece en la lista?",
-        opciones: ["Crema Hidratante", "Base líquida profesional", "Sombras de ojos"],
-        correcta: 0
-    }
+{
+texto: "¿Cuál es el eje central del trabajo profesional en Garbo?",
+opciones: [
+"La estética decorativa",
+"La dermocosmética",
+"El maquillaje artístico"
+],
+correcta: 1
+},
+{
+texto: "¿Qué aspecto se analiza antes de definir un tratamiento?",
+opciones: [
+"Solo el tipo de producto disponible",
+"El estado actual de la piel y antecedentes",
+"La edad del paciente únicamente"
+],
+correcta: 1
+},
+{
+texto: "¿Qué estimula el Dermapen en la piel?",
+opciones: [
+"La producción de colágeno y elastina",
+"La pigmentación superficial",
+"La resequedad controlada"
+],
+correcta: 0
+},
+{
+texto: "¿Qué genera la radiofrecuencia en la dermis?",
+opciones: [
+"Enfriamiento superficial",
+"Ondas electromagnéticas que producen calor controlado",
+"Vibración mecánica externa"
+],
+correcta: 1
+},
+{
+texto: "¿Qué se prioriza por encima de cualquier resultado estético inmediato?",
+opciones: [
+"La rapidez del tratamiento",
+"La salud cutánea",
+"La tendencia del momento"
+],
+correcta: 1
+},
+{
+texto: "¿Qué diferencia a Garbo de un espacio estético convencional?",
+opciones: [
+"Uso exclusivo de promociones",
+"Enfoque integral con diagnóstico previo y seguimiento",
+"Aplicación de tratamientos estandarizados"
+],
+correcta: 1
+},
+{
+texto: "¿Cuál es el objetivo del peeling estacional?",
+opciones: [
+"Deshidratar la piel",
+"Estimular la renovación celular de forma controlada",
+"Cambiar el tono natural de la piel"
+],
+correcta: 1
+},
+{
+texto: "¿Qué caracteriza la experiencia Garbo durante la sesión?",
+opciones: [
+"Procedimientos rápidos sin explicación",
+"Espacio de diálogo, información clara y acompañamiento",
+"Aplicación automática de protocolos fijos"
+],
+correcta: 1
+},
+{
+texto: "¿Qué permite la dermoabrasión con punta de diamante?",
+opciones: [
+"Eliminar células muertas y mejorar textura",
+"Cambiar la estructura genética de la piel",
+"Eliminar arrugas profundas en una sesión"
+],
+correcta: 0
+},
+{
+texto: "¿Qué idea resume la filosofía de Garbo?",
+opciones: [
+"La estética como lujo superficial",
+"La belleza basada en cuidado consciente y conocimiento técnico",
+"La prioridad en resultados inmediatos"
+],
+correcta: 1
+}
 ];
+
+// =============================
+// VARIABLES DE ESTADO
+// =============================
 
 let jugador3 = { nombre: "", puntos: 0, correctas: 0, incorrectas: 0 };
 let indicePregunta = 0;
+let juegoActivo = false;
 
-// ELEMENTOS
+// =============================
+// ELEMENTOS DOM
+// =============================
+
 const inputNombre3 = document.getElementById("nombre3");
 const btnComenzar3 = document.getElementById("comenzar3");
 const preguntaContainer = document.getElementById("pregunta-container");
@@ -56,9 +114,12 @@ const preguntaTexto = document.getElementById("pregunta-texto");
 const opcionesDiv = document.getElementById("opciones");
 const btnSiguiente = document.getElementById("siguiente");
 const resultadoDiv3 = document.getElementById("resultado3");
-const toggleConsigna = document.getElementById("toggle-consigna");
+const toggleInstrucciones = document.getElementById("toggle-instrucciones");
 
-// Mezclar preguntas
+// =============================
+// FUNCIONES
+// =============================
+
 function mezclarArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
 }
@@ -79,8 +140,8 @@ function mostrarPregunta() {
     pregunta.opciones.forEach((opcion, index) => {
         let btn = document.createElement("button");
         btn.textContent = opcion;
-        btn.classList.add("btn", "btn-outline-dark");
-        btn.addEventListener("click", () => seleccionarRespuesta(index, btn));
+        btn.classList.add("btn", "btn-outline-dark", "w-100", "mb-2");
+        btn.addEventListener("click", () => seleccionarRespuesta(index));
         opcionesDiv.appendChild(btn);
     });
 
@@ -88,16 +149,19 @@ function mostrarPregunta() {
     actualizarContador();
 }
 
-function seleccionarRespuesta(indiceElegido, botonClickeado) {
+function seleccionarRespuesta(indiceElegido) {
+
     let pregunta = preguntas[indicePregunta];
     let botones = opcionesDiv.querySelectorAll("button");
 
     botones.forEach((btn, i) => {
         btn.disabled = true;
+
         if (i === pregunta.correcta) {
             btn.classList.remove("btn-outline-dark");
             btn.classList.add("btn-success");
-        } else if (i === indiceElegido) {
+        } 
+        else if (i === indiceElegido) {
             btn.classList.remove("btn-outline-dark");
             btn.classList.add("btn-danger");
         }
@@ -126,6 +190,10 @@ function siguientePregunta() {
 function finDelJuego() {
     preguntaContainer.style.display = "none";
 
+    juegoActivo = false;
+    btnComenzar3.disabled = false;
+    inputNombre3.disabled = false;
+
     resultadoDiv3.innerHTML = `
         <h3>¡Juego terminado!</h3>
         <p>${jugador3.nombre}, tu puntaje final es:</p>
@@ -137,23 +205,56 @@ function finDelJuego() {
 function reiniciar() {
     jugador3 = { nombre: "", puntos: 0, correctas: 0, incorrectas: 0 };
     indicePregunta = 0;
+    juegoActivo = false;
+
     preguntas = mezclarArray(preguntas);
+
+    btnComenzar3.disabled = false;
+    inputNombre3.disabled = false;
+
     resultadoDiv3.innerHTML = "";
     preguntaContainer.style.display = "block";
+
     mostrarPregunta();
 }
 
+// =============================
 // EVENTOS
+// =============================
+
 btnComenzar3.addEventListener("click", () => {
+
+    if (juegoActivo) return;
+
     jugador3.nombre = inputNombre3.value.trim() || "Jugador";
+
+    juegoActivo = true;
+    btnComenzar3.disabled = true;
+    inputNombre3.disabled = true;
+
     preguntas = mezclarArray(preguntas);
+
     preguntaContainer.style.display = "block";
+    resultadoDiv3.innerHTML = "";
+
     mostrarPregunta();
 });
 
 btnSiguiente.addEventListener("click", siguientePregunta);
 
-toggleConsigna.addEventListener("click", () => {
-    const c = document.getElementById("consigna");
-    c.style.display = c.style.display === "none" ? "block" : "none";
+// =============================
+// INSTRUCCIONES
+// =============================
+
+toggleInstrucciones.addEventListener("click", () => {
+
+    const instrucciones = document.getElementById("instrucciones");
+
+    if (instrucciones.style.display === "none") {
+        instrucciones.style.display = "block";
+        toggleInstrucciones.textContent = "Ocultar instrucciones";
+    } else {
+        instrucciones.style.display = "none";
+        toggleInstrucciones.textContent = "Ver instrucciones";
+    }
 });

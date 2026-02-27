@@ -130,3 +130,7 @@ footer {
   color: #8e24aa;
   text-shadow: 0 0 8px rgba(180, 120, 255, 0.4);
 }
+
+.lead {
+  font-style: italic;
+}
