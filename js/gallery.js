@@ -1,28 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const carousel = document.querySelector("#mainCarousel");
-  const bsCarousel = new bootstrap.Carousel(carousel);
-  const thumbs = document.querySelectorAll(".thumb");
+  const modal = document.getElementById("galleryModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeModal = document.querySelector(".close-modal");
 
-  thumbs.forEach(thumb => {
-
-    thumb.addEventListener("click", function () {
-
-      const index = this.getAttribute("data-index");
-      bsCarousel.to(index);
-
-      thumbs.forEach(t => t.classList.remove("active-thumb"));
-      this.classList.add("active-thumb");
-
+  document.querySelectorAll(".carousel-img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
     });
-
   });
 
-  carousel.addEventListener("slid.bs.carousel", function (event) {
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalImg.src = "";
+  });
 
-    thumbs.forEach(t => t.classList.remove("active-thumb"));
-    thumbs[event.to].classList.add("active-thumb");
-
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
   });
 
 });

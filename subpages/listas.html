@@ -7,6 +7,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  
 </head>
 
 <body>
@@ -57,34 +58,66 @@
 
 <main class="container my-5">
 
-  <h1>Lista de Productos y Precios</h1>
+  <h1 class="text-center mb-4">Lista de Productos y Precios</h1>
 
-  <table class="table table-striped mt-5 bg-white rounded shadow-sm">
+  <table class="table table-striped mt-4 bg-white rounded shadow-sm">
     <thead>
       <tr>
         <th>Producto</th>
         <th>Descripción</th>
-        <th>Precio</th>
+        <th>Precio (ARS)</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Crema Hidratante</td>
-        <td>Uso diario para todo tipo de piel.</td>
-        <td>$5.000</td>
+        <td>Crema Hidratante Facial</td>
+        <td>Uso diario, hidratación profunda para todo tipo de piel.</td>
+        <td>12000</td>
+        <td><button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Crema Hidratante Facial', 12000)">Agregar</button></td>
       </tr>
+
       <tr>
         <td>Serum Vitamina C</td>
-        <td>Iluminador y revitalizante.</td>
-        <td>$7.500</td>
+        <td>Iluminador, antioxidante y revitalizante.</td>
+        <td>18500</td>
+        <td><button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Serum Vitamina C', 18500)">Agregar</button></td>
       </tr>
+
       <tr>
         <td>Protector Solar FPS 50+</td>
-        <td>Protección diaria.</td>
-        <td>$6.000</td>
+        <td>Protección solar diaria alta cobertura.</td>
+        <td>15000</td>
+        <td><button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Protector Solar FPS 50+', 15000)">Agregar</button></td>
       </tr>
+
+      <tr>
+        <td>Gel de Limpieza Profunda</td>
+        <td>Limpieza facial para piel mixta/grasa.</td>
+        <td>11000</td>
+        <td><button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Gel de Limpieza Profunda', 11000)">Agregar</button></td>
+      </tr>
+
+      <tr>
+        <td>Contorno de Ojos</td>
+        <td>Reduce líneas finas y signos de fatiga.</td>
+        <td>16500</td>
+        <td><button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Contorno de Ojos', 16500)">Agregar</button></td>
+      </tr>
+
     </tbody>
   </table>
+
+  <!-- CARRITO -->
+  <div class="mt-5 p-4 bg-white rounded shadow-sm">
+    <h3>Carrito de Compras</h3>
+
+    <ul id="listaCarrito"></ul>
+
+    <h4>Total: $<span id="total">0</span></h4>
+
+    <button class="btn btn-success mt-3" onclick="generarRecibo()">Generar Recibo</button>
+  </div>
 
 </main>
 
@@ -92,8 +125,8 @@
 <p>garbo.dermoestetica@gmail.com</p>
 </footer>
 
-<script src="../js/ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/carrito.js"></script>
 
 </body>
 </html>
