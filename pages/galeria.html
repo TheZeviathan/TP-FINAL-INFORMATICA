@@ -62,39 +62,122 @@
 
 
 <main class="container my-5">
-  <h1>Galería Multimedia</h1>
 
-  <p>
-    Esta galería presenta una selección de imágenes y registros visuales de las
-    criaturas mecánicas exhibidas en el museo.
-  </p>
+  <section class="text-center mb-5">
+    <h1>Galería Garbo</h1>
+    <p class="lead fst-italic mt-3">
+      Registros visuales de tratamientos, aparatología y resultados.
+    </p>
+  </section>
 
-  <p>
-    Las imágenes pueden ampliarse mediante una interacción desarrollada con
-    JavaScript para mejorar la experiencia de exploración.
-  </p>
+  <!-- CARRUSEL PRINCIPAL -->
+  <div id="mainCarousel" class="carousel slide gallery-carousel" data-bs-ride="false">
+    <div class="carousel-inner rounded shadow">
 
-  <!-- GALERÍA -->
-  <div class="row g-3 gallery">
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img1.jpg" alt="Criatura mecánica 1" class="img-fluid gallery-img">
+      <!-- SLIDE ACTIVO -->
+      <div class="carousel-item active">
+        <img src="../imgs/lipieza.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/dermapen.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/radiofrecuencia.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/capilar.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/corporal.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/peeling.webp" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_1.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_2.webp" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_3.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_4.jpg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_5.jpeg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_6.jpeg" class="d-block w-100 carousel-img">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../imgs/img_7.jpeg" class="d-block w-100 carousel-img">
+      </div>
+
+      <!-- VIDEO -->
+      <div class="carousel-item">
+        <video class="d-block w-100 carousel-img"
+               controls
+               muted
+               playsinline>
+          <source src="../imgs/img_8.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+
     </div>
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img2.jpg" alt="Criatura mecánica 2" class="img-fluid gallery-img">
-    </div>
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img3.jpg" alt="Criatura mecánica 3" class="img-fluid gallery-img">
-    </div>
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img4.jpg" alt="Criatura mecánica 4" class="img-fluid gallery-img">
-    </div>
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img5.jpg" alt="Criatura mecánica 5" class="img-fluid gallery-img">
-    </div>
-    <div class="col-6 col-md-4">
-      <img src="../../assets/images/img6.jpg" alt="Criatura mecánica 6" class="img-fluid gallery-img">
-    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
   </div>
+
+  <!-- MINIATURAS -->
+  <div class="row mt-4 g-3 thumbnails">
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/limpieza.jpg" class="img-fluid thumb active-thumb" data-index="0">
+    </div>
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/dermapen.jpg" class="img-fluid thumb" data-index="1">
+    </div>
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/radiofrecuencia.jpg" class="img-fluid thumb" data-index="2">
+    </div>
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/capilar.jpg" class="img-fluid thumb" data-index="3">
+    </div>
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/corporal.jpg" class="img-fluid thumb" data-index="4">
+    </div>
+
+    <div class="col-4 col-md-2">
+      <img src="../imgs/peeling.webp" class="img-fluid thumb" data-index="5">
+    </div>
+
+  </div>
+
 </main>
 
 <footer class="footer-custom text-center p-3">
