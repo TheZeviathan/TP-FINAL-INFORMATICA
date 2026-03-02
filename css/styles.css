@@ -203,3 +203,41 @@ footer {
 .carousel-control-next-icon:hover {
   background-color: rgba(0,0,0,0.9);
 }
+
+.calendar-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  max-width: 600px;
+  margin: auto;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.day {
+  padding: 10px;
+  text-align: center;
+  background: #f1e9f7;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #d7c3eb;
+}
+
+.day.selected {
+  background: #8e44ad;
+  color: white;
+}
+
+.day.disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
